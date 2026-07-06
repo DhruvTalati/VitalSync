@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", system-ui, sans-serif;
+  color: #10233d;
+  background-color: #ffffff;
+}
+
+.container-app {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: #2280e0;
+  color: #ffffff;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  transition:
+    background-color 0.2s ease,
+    transform 0.15s ease;
+}
+
+.btn-primary:hover {
+  background-color: #1c68bd;
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: #ffffff;
+  color: #10233d;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  border: 1px solid #e2e8f0;
+  transition:
+    border-color 0.2s ease,
+    transform 0.15s ease;
+}
+
+.btn-secondary:hover {
+  border-color: #93d2fd;
+  transform: translateY(-1px);
+}
+
+.input-field {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  border-radius: 0.65rem;
+  border: 1px solid #dbe4ee;
+  outline: none;
+  font-size: 0.925rem;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.input-field:focus {
+  border-color: #3b9df5;
+  box-shadow: 0 0 0 3px rgba(59, 157, 245, 0.15);
+}
+
+.field-label {
+  display: block;
+  font-size: 0.825rem;
+  font-weight: 600;
+  color: #33455c;
+  margin-bottom: 0.4rem;
+}
+
+.field-error {
+  color: #dc2626;
+  font-size: 0.75rem;
+  margin-top: 0.3rem;
+}
+
+.card-surface {
+  background-color: #ffffff;
+  border-radius: 1.25rem;
+  box-shadow: 0 4px 24px -4px rgba(28, 87, 154, 0.08);
+  border: 1px solid #eef2f7;
+}
