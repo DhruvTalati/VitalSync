@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import api from "../services/api";
+import { loginUser, registerUser } from "../services/authService";
 
 const AuthContext = createContext();
 
@@ -22,13 +23,22 @@ export const AuthProvider = ({ children }) => {
     setLoading(false);
   }, []);
 
-  const login = ({ token, user }) => {
-    localStorage.setItem("token", token);
-    localStorage.setItem("user", JSON.stringify(user));
+  const register = async (payload) => {
+    const { data } = await registerUser(payload);
+    return data;
+  };
 
-    api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+  const login = async (credentials) => {
+    const { data } = await loginUser(credentials);
 
-    setUser(user);
+    localStorage.setItem("token", data.token);
+    localStorage.setItem("user", JSON.stringify(data.user));
+
+    api.defaults.headers.common["Authorization"] = `Bearer ${data.token}`;
+
+    setUser(data.user);
+
+    return data;
   };
 
   const logout = () => {
@@ -46,6 +56,7 @@ export const AuthProvider = ({ children }) => {
         user,
         setUser,
         login,
+        register,
         logout,
         loading,
         isAuthenticated: !!user,
